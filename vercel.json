@@ -17,6 +17,9 @@
     {
       "src": ".prisma/client",
       "use": "@prisma/vercel-builder"
+    },
+    { "src": "package.json",
+      "use": "@vercel/node"
     }
   ]
 }
