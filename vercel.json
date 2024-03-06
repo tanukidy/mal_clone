@@ -20,6 +20,14 @@
     },
     { "src": "package.json",
       "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "NODE_VERSION": "14",
+        "PRISMA_GENERATE": "true"
+      }
     }
   ]
 }
