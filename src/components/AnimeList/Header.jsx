@@ -2,11 +2,11 @@ import Link from "next/link"
 
 const Header = ({title, linkHref, linkTitle}) => {
   return (
-    <div className="flex justify-between items-center p-4">
+    <div className="flex justify-between items-center py-4">
       <h1 className="text-2xl font-bold text-color-primary">{title}</h1>
 
       {linkHref && linkTitle ? 
-        <Link href={linkHref} className="md:text-xl text-sm underline text-color-primary  hover:text-color-accent transition-all">
+        <Link href={linkHref} className="md:text-xl text-sm underline text-color-primary pr-2 hover:text-color-accent transition-all">
           {linkTitle}
         </Link> 
         : null 

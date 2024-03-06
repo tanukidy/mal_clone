@@ -4,6 +4,7 @@ import Blank from "@/components/Dashboard/Blank"
 import Header from "@/components/Dashboard/Header"
 import { authUserSession } from "@/libs/auth-libs"
 import prisma from "@/libs/prisma"
+import Image from "next/image"
 import Link from "next/link"
 
 const page = async () => {
@@ -24,7 +25,7 @@ const page = async () => {
               key={star.id}
               src={star.filled ? "/Filled-Star.png" : "/Empty-Star.png"}
               alt={star.filled ? "Filled Star" : "Empty Star"}
-              style={{ width: "20px", height: "20px", marginRight: "2px" }}
+              style={{ width: "15px", height: "15px", marginRight: "2px" }}
             />
           ))}
         </div>
@@ -42,10 +43,18 @@ const page = async () => {
          comments.map(comment => {
           return (
 
-            <Link href={`/Anime/${comment.anime_mal_id}`} key={comment.id} className="bg-color-primary text-color-dark p-4">
-              <p className="text-sm">{comment.anime_title}</p>
-              <p className="italic">{comment.comment}</p>
-              {renderStarRating(comment.rating)}
+            <Link href={`/Anime/${comment.anime_mal_id}`} key={comment.id} className="flex flex-row gap-2 bg-color-lightdark text-color-primary p-2">
+              <Image 
+                src={comment.anime_image}
+                alt=""
+                width={60}
+                height={60}
+              />
+              <div>
+                <p className="text-sm">{comment.anime_title}</p>
+                <p className="italic small-text">{comment.comment}</p>
+                {renderStarRating(comment.rating)}
+              </div>
             </Link>
               
           )

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import StarRatings from "react-star-ratings"
 
-const CommentInput = ({anime_mal_id, user_email, username, anime_title}) => {
+const CommentInput = ({anime_mal_id, user_email, username, anime_title, anime_image}) => {
   const [comment, setComment] = useState("")
   const [isCreated, setIsCreated] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
@@ -25,7 +25,7 @@ const CommentInput = ({anime_mal_id, user_email, username, anime_title}) => {
         return
       }
 
-      const data = {anime_mal_id, user_email, comment, username, anime_title, rating: rating.toString()}
+      const data = {anime_mal_id, user_email, comment, username, anime_title, anime_image, rating: rating.toString()}
 
       const response = await fetch("/api/v1/comment", {
         method: "POST",
@@ -48,7 +48,8 @@ const CommentInput = ({anime_mal_id, user_email, username, anime_title}) => {
       <textarea 
       onChange={handleInput} 
       value={comment} 
-      className="w-full h-32 text-xl p-2"
+      className="w-full h-32 text-md p-2 bg-color-lightdark text-color-primary border border-color-primary"
+      
       />
       <StarRatings
         rating={rating}

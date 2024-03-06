@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.disable-hover:hover {
-  transform: none !important;
+body {
+  font-family: 'Verdana', Arial;
 }
 
 img {
   transition: .3s ease all;
 }
 
-img:hover {
+.img-scale:hover {
   scale: 102%
 }
-
 
 
 .Loading{
@@ -36,11 +35,34 @@ img:hover {
 }
 
 .small-text {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .anime-stats {
   font-size: 16px;
+  margin-right: 24px;
+}
+
+.left-info-titles {
+  padding: 3px 0px 3px 0px;
+  margin: 15px 0px 5px 0px;
+}
+
+.left-info {
+  padding: 3px 0px 3px 0px;
+  color: rgb(181, 187, 194);
+  font-size: 11px;
+}
+
+.small-table {
+  height: 67.5px;
+}
+.border-bold {
+  border-width: 2px;
+}
+
+.left-img-info {
+  width: 289px;
 }
 
 

@@ -17,7 +17,7 @@ const AnimeDisplay = () => {
         const topAnimeData = await getAnimeResponse("top/anime", "limit=12");
         const recommendedAnimeData = await getNestedAnimeResponse("recommendations/anime", "entry");
 
-        setTopAnime(topAnimeData.data || []); // Ensure topAnimeData.data is an array or default to an empty array
+        setTopAnime(topAnimeData.data || []);
         setRecommendedAnime(recommendedAnimeData);
         setFetchError(null);
       

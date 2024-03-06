@@ -13,8 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-color-dark`}>
+        <div className='relative mb-0 ml-auto mr-auto w-1060 text-left'>
         <NavBar/>
         {children}
+        </div>
         </body>
     </html>
   )

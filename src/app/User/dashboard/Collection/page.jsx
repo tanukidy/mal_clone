@@ -23,10 +23,10 @@ const page = async () => {
       Collection.map((collect,index) => {
         return (
           <Link key={index} href={`/Anime/${collect.anime_mal_id}`}
-          className="relative">
-            <Image src={collect.anime_image} alt="" width={350} height={350} className="w-full disable-hover"/>
-              <div className="absolute flex justify-center items-center bottom-0 w-full bg-color-accent h-16">
-                <h5 className="text-xl text-center">{collect.anime_title}</h5>
+          className="relative mb-5">
+            <Image src={collect.anime_image} alt="" width={350} height={350} className="w-full max-h-64 xl:max-h-80 "/>
+              <div className="absolute flex justify-center items-center bottom-[-14px] w-full bg-color-accent h-16">
+                <h5 className="text-md text-center">{collect.anime_title}</h5>
               </div>
           </Link>
         )

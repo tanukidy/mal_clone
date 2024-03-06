@@ -40,8 +40,8 @@ const AnimeList = ({ api, isGrid }) => {
   ] : []
 
   return (
-    <div className="relative bg-color-dark md:px-8 xl:px-8 sm:px-8 px-2">
-      <div className={`flex overflow-hidden space-x-4 ${isGrid ? "grid-container" : "border"} py-2 group`}>
+    <div className="relative bg-color-dark">
+      <div className={`flex overflow-hidden space-x-4 ${isGrid ? "grid-container" : "border-t border-color-borderdark"} py-2 group`}>
         {isGrid ? (
           <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 md:px-4 sm:px-4">
             {isGrid.data?.map((anime, index) => (
@@ -55,7 +55,7 @@ const AnimeList = ({ api, isGrid }) => {
                   alt={anime.title}
                   width={350}
                   height={350}
-                  className="w-full max-h-64 xl:max-h-80 object-cover"
+                  className="w-full max-h-64 xl:max-h-80 object-cover img-scale"
                 />
                 <h3 className="font-bold md:text-xl text-md p-4">{anime.title}</h3>
               </Link>
@@ -74,7 +74,7 @@ const AnimeList = ({ api, isGrid }) => {
                   alt={anime.title}
                   width={350}
                   height={350}
-                  className="w-full sm:w-30 h-80 sm:h-30 object-cover"
+                  className="w-full sm:w-30 h-80 sm:h-30 object-cover img-scale"
                 />
                 <h3 className="font-bold text-md p-4 title-ellipsis">{anime.title}</h3>
               </div>
@@ -83,10 +83,10 @@ const AnimeList = ({ api, isGrid }) => {
         )}
         {!isSmallScreen && (
           <>
-        <div className='absolute top-1/2 left-2 -translate-y-20 border rounded-r-full bg-color-dark py-5 px-1 opacity-0 group-hover:translate-x-2 group-hover:opacity-100  transition-all ease-in-out duration-500 z-5'>
+        <div className='absolute top-1/2 left-[-24px] -translate-y-20 border rounded-r-full bg-color-dark py-5 px-1 opacity-0 group-hover:translate-x-2 group-hover:opacity-90 transition-all ease-in-out duration-500 z-5'>
           <CaretLeft onClick={handlePrev} className='' size={40} />
         </div>
-        <div className='absolute top-1/2 right-6 -translate-y-20 border rounded-l-full bg-color-dark py-5 px-1 opacity-0 group-hover:translate-x-[-7px] group-hover:opacity-100 transition-all ease-in-out duration-500 z-5'>
+        <div className='absolute top-1/2 right-[-7px] -translate-y-20 border rounded-l-full bg-color-dark py-5 px-1 opacity-0 group-hover:translate-x-[-7px] group-hover:opacity-90 transition-all ease-in-out duration-500 z-5'>
           <CaretRight onClick={handleNext} className='' size={40} />
         </div>
         </>
