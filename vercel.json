@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "next.config.js",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "maxLambdaSize": "10mb" }
+    },
+    {
+      "src": ".prisma/client",
+      "use": "@prisma/vercel-builder"
+    }
+  ]
+}
