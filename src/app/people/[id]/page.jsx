@@ -18,7 +18,7 @@ const page = async ({params:{id}}) => {
 
   
 
-  const aboutText = people.data.about;
+  const aboutText = people.data.about !== null ? people.data.about : "";
   const lines = aboutText.split('\n')
 
   const people_info = lines.map((line, index) => {

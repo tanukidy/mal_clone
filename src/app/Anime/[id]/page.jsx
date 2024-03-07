@@ -1,23 +1,23 @@
 import { getAnimeResponse } from "@/libs/api-list"
 import VideoPlayer from "@/components/Utilities/VideoPlayer"
 import Image from "next/image"
-import CollectionButton from "@/components/AnimeList/CollectionButton"
+/*import CollectionButton from "@/components/AnimeList/CollectionButton"
 import { authUserSession } from "@/libs/auth-libs"
 import prisma from "@/libs/prisma"
 import CommentInput from "@/components/AnimeList/CommentInput"
-import CommentBox from "@/components/AnimeList/CommentBox"
+import CommentBox from "@/components/AnimeList/CommentBox"*/
 import AnimeInfo from "@/components/AnimeList/AnimeInfo"
 
 
 const page = async ({params:{id}}) => {
   const anime = await getAnimeResponse(`anime/${id}`, "")
   const characters = await getAnimeResponse(`anime/${id}/characters`, "")
-  const user = await authUserSession()
+  /*const user = await authUserSession()
   const collection = await prisma.collection.findFirst({
     where: {user_email: user?.email, anime_mal_id: id}
-  })
+  })*/
 
-  const aboutText = anime.data.synopsis;
+  const aboutText = anime.data.synopsis !== null ? anime.data.synopsis : "No synopsis information has been added to this title.";
   const lines = aboutText.split('\n')
   const synopsis = lines.map((line, index) => {
     if (line.trim() === '') {
@@ -164,7 +164,7 @@ const page = async ({params:{id}}) => {
                     </div>
                 </div>
               </div>
-              {!collection && user && <CollectionButton anime_mal_id={id} user_email={user?.email} anime_title={anime.data.title} anime_image={anime.data.images.webp.image_url}/>}
+              {/*!collection && user && <CollectionButton anime_mal_id={id} user_email={user?.email} anime_title={anime.data.title} anime_image={anime.data.images.webp.image_url}/> */}
             </div>
             <div>
               <VideoPlayer youtubeId={anime.data.trailer.youtube_id}/>
@@ -176,7 +176,7 @@ const page = async ({params:{id}}) => {
               <b>Synopsis</b>
               <a href={`/Anime/${anime.mal_id}`} className="small-text text-color-link hover:underline">Edit</a>
             </div>
-            <div className="small-text ">{synopsis ?? "No synopsis information has been added to this title."}</div>
+            <div className="small-text ">{synopsis}</div>
           </div>
 
           <div className="flex flex-col gap-2 text-color-primary mt-5"> {/* Characters & Voice Actors */}
@@ -199,7 +199,7 @@ const page = async ({params:{id}}) => {
           
           <div className="mt-5"> {/* Reviews */}
             <h3 className="text-color-primary text-md font-bold mb-4">Reviews</h3>
-            <CommentBox anime_mal_id={id}/>
+            {/*<CommentBox anime_mal_id={id}/>
             {user ? (
             <CommentInput
               anime_mal_id={id}
@@ -208,11 +208,11 @@ const page = async ({params:{id}}) => {
               anime_title={anime.data.title}
               anime_image={anime.data.images.webp.image_url}
             />
-            ) : (
+            ) : (Sign in div
+            )}*/}
             <div className="text-color-primary">
               <a href="/api/auth/signin" className="text-color-link hover:underline">Sign In</a> to comment.
             </div>
-            )}
           </div>
         </div>
       </div>

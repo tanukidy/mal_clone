@@ -6,7 +6,7 @@ import Image from "next/image"
 const page = async ({params:{id}}) => {
   const characters = await getAnimeResponse(`characters/${id}/full`, "")
   
-  const aboutText = characters.data.about;
+  const aboutText = characters.data.about !== null ? characters.data.about : "";
   const lines = aboutText.split('\n')
 
   const synopsis = lines.map((line, index) => {

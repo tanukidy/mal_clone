@@ -7,18 +7,19 @@ import Blank from "@/components/Dashboard/Blank"
 
 const page = async () => {
   const user = await authUserSession()
-  const Collection = await prisma.collection.findMany({
+  /*const Collection = await prisma.collection.findMany({
     where: {user_email: user.email}
-  })
+  }) */
   
  return (
   <section className="mt-4 px-4 w-full">
     <Header title={"My Collection"}/>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {Collection.length === 0 
-      ?
+    <div className="sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <Blank title={"NO COLLECTION"}/>
+      {/*Collection.length === 0 
+      ?
+       <Blank/>
       :
       Collection.map((collect,index) => {
         return (
@@ -31,7 +32,7 @@ const page = async () => {
           </Link>
         )
       })
-      }
+    */}
       
     </div>
   </section>

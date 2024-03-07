@@ -1,5 +1,3 @@
-
-
 import Blank from "@/components/Dashboard/Blank"
 import Header from "@/components/Dashboard/Header"
 import { authUserSession } from "@/libs/auth-libs"
@@ -8,9 +6,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 const page = async () => {
-    const user = await authUserSession()
+    /*const user = await authUserSession()
     const comments = await prisma.comment.findMany({where: {user_email: user.email} })
-
+    */
     const renderStarRating = (rating) => {
       const maxRating = 5;
       const starArray = Array.from({ length: maxRating }, (_, index) => ({
@@ -36,9 +34,10 @@ const page = async () => {
     <section className="px-4 mt-4 w-full">
       <Header title={"My Comment"}/>
       <div className="grid grid-cols-1 py-2 gap-4">
-        {comments.length === 0
+        <Blank title={"NO COMMENT"}/>
+        {/*comments.length === 0
          ? 
-         <Blank title={"NO COMMENT"}/>
+        <Blank/>
          :
          comments.map(comment => {
           return (
@@ -59,8 +58,7 @@ const page = async () => {
               
           )
         })
-        }
-        
+      */}
       </div>
     </section>
   )
