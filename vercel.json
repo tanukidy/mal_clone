@@ -2,16 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "next.config.js",
+      "src": "package.json",
       "use": "@vercel/static-build"
-    },
-    {
-      "src": ".prisma/client",
-      "use": "@prisma/vercel-builder"
     }
   ]
 }
