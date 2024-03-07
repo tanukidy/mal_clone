@@ -1,3 +1,4 @@
+{
   "version": 2,
   "builds": [
     {
@@ -9,25 +10,9 @@
       "use": "@vercel/static-build"
     },
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "maxLambdaSize": "10mb" }
-    },
-    {
       "src": ".prisma/client",
       "use": "@prisma/vercel-builder"
-    },
-    { "src": "package.json",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "NODE_VERSION": "14",
-        "PRISMA_GENERATE": "true"
-      }
     }
   ]
-
+}
 
