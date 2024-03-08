@@ -14,7 +14,12 @@ export const getAnimeResponse = async(resource, query) => {
 
 export const getNestedAnimeResponse = async (resource, objectProperty) => {
  const response = await getAnimeResponse(resource)
- return response.data.flatMap(item => item[objectProperty])
+ if (response && response.data) {
+  return response.data.flatMap(item => item[objectProperty]);
+} else {
+  // Handle null response or return an empty array
+  return [];
+}
 }
 
 export const reproduce = (data, gap) => {

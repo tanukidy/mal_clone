@@ -1,15 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
 import Header from "@/components/Dashboard/Header"
-import { authUserSession } from "@/libs/auth-libs"
-import prisma from "@/libs/prisma"
 import Blank from "@/components/Dashboard/Blank"
 
 const page = async () => {
-  const user = await authUserSession()
-  /*const Collection = await prisma.collection.findMany({
-    where: {user_email: user.email}
-  }) */
   
  return (
   <section className="mt-4 px-4 w-full">
@@ -17,23 +9,6 @@ const page = async () => {
 
     <div className="sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <Blank title={"NO COLLECTION"}/>
-      {/*Collection.length === 0 
-      ?
-       <Blank/>
-      :
-      Collection.map((collect,index) => {
-        return (
-          <Link key={index} href={`/Anime/${collect.anime_mal_id}`}
-          className="relative mb-5">
-            <Image src={collect.anime_image} alt="" width={350} height={350} className="w-full max-h-64 xl:max-h-80 "/>
-              <div className="absolute flex justify-center items-center bottom-[-14px] w-full bg-color-accent h-16">
-                <h5 className="text-md text-center">{collect.anime_title}</h5>
-              </div>
-          </Link>
-        )
-      })
-    */}
-      
     </div>
   </section>
   
