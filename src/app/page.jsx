@@ -2,8 +2,13 @@ import Header from "@/components/AnimeList/Header"
 import AnimeList from "@/components/AnimeList"
 import { getAnimeResponse, getNestedAnimeResponse, reproduce } from "@/libs/api-list"
 
-const Home = ({ seasonalAnime, topAnime, recommendedAnime }) => {
+const Home = async () => {
 
+  const topAnime = await getAnimeResponse("top/anime")
+  let recommendedAnime = await getNestedAnimeResponse("recommendations/anime", "entry")
+  recommendedAnime = reproduce(recommendedAnime, 30)
+  const seasonalAnime = await getAnimeResponse("seasons/now")
+  
   return (
     <> 
       <section>
@@ -22,21 +27,6 @@ const Home = ({ seasonalAnime, topAnime, recommendedAnime }) => {
       </section>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const topAnime = await getAnimeResponse("top/anime");
-  let recommendedAnime = await getNestedAnimeResponse("recommendations/anime", "entry");
-  recommendedAnime = reproduce(recommendedAnime, 30);
-  const seasonalAnime = await getAnimeResponse("seasons/now");
-
-  return {
-    props: {
-      seasonalAnime,
-      topAnime,
-      recommendedAnime,
-    },
-  };
 }
 
 export default Home
