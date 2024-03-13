@@ -203,11 +203,11 @@ const page = async ({params:{id}}) => {
           
           <div className="mt-5"> {/* Reviews */}
             <h3 className="text-color-primary text-md font-bold mb-4">Reviews</h3>
-            <CommentBox anime_mal_id={id}/>
             <div className="text-color-primary">
               <a href="/api/auth/signin" className="text-color-link hover:underline">Sign In</a> to comment.
             </div>
-            {/* user ? (
+            {/* <CommentBox anime_mal_id={id}/>
+            {user ? (
             <CommentInput
               anime_mal_id={id}
               user_email={user.email}
@@ -217,7 +217,8 @@ const page = async ({params:{id}}) => {
             />
             ) : (
               Sign In div
-            ) */}
+            )}
+            */}
           </div>
         </div>
       </div>
