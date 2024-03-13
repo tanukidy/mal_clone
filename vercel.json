@@ -1,6 +1,6 @@
 {
   "rewrites": [
     {"source": "^/Anime/([^/]+)$", "destination": "/Anime/[id]"},
-    {"source":"/(.*)","destination":"/"}
+    
   ]
 }
