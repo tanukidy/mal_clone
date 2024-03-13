@@ -1,6 +1,8 @@
 {
   "rewrites": [
+    {"source": "^/$", "destination": "/"},
     {"source": "^/Anime/([^/]+)$", "destination": "/Anime/[id]"},
-    {"source":"/(.*)","destination":"/"}
+    {"source": "^/Search/([^/]+)$", "destination": "/Search/[keyword]"},
+    {"source": "^/User/dashboard", "destination": "/User/dashboard"}
   ]
 }
