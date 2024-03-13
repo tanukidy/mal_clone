@@ -1,21 +1,25 @@
 import { getAnimeResponse } from "@/libs/api-list"
 import VideoPlayer from "@/components/Utilities/VideoPlayer"
 import Image from "next/image"
+/*
 import CollectionButton from "@/components/AnimeList/CollectionButton"
 import { authUserSession } from "@/libs/auth-libs"
 import prisma from "@/libs/prisma"
 import CommentInput from "@/components/AnimeList/CommentInput"
 import CommentBox from "@/components/AnimeList/CommentBox"
+*/
 import AnimeInfo from "@/components/AnimeList/AnimeInfo"
 
 
 const page = async ({params:{id}}) => {
   const anime = await getAnimeResponse(`anime/${id}`, "")
   const characters = await getAnimeResponse(`anime/${id}/characters`, "")
+  /*
   const user = await authUserSession()
   const collection = await prisma.collection.findFirst({
     where: {user_email: user?.email, anime_mal_id: id}
   })
+  */
 
   const aboutText = anime.data.synopsis !== null ? anime.data.synopsis : "No synopsis information has been added to this title.";
   const lines = aboutText.split('\n')
@@ -164,7 +168,7 @@ const page = async ({params:{id}}) => {
                     </div>
                 </div>
               </div>
-              {!collection && user && <CollectionButton anime_mal_id={id} user_email={user?.email} anime_title={anime.data.title} anime_image={anime.data.images.webp.image_url}/>}
+              {/* !collection && user && <CollectionButton anime_mal_id={id} user_email={user?.email} anime_title={anime.data.title} anime_image={anime.data.images.webp.image_url}/> */}
             </div>
             <div>
               <VideoPlayer youtubeId={anime.data.trailer.youtube_id}/>
@@ -200,7 +204,10 @@ const page = async ({params:{id}}) => {
           <div className="mt-5"> {/* Reviews */}
             <h3 className="text-color-primary text-md font-bold mb-4">Reviews</h3>
             <CommentBox anime_mal_id={id}/>
-            {user ? (
+            <div className="text-color-primary">
+              <a href="/api/auth/signin" className="text-color-link hover:underline">Sign In</a> to comment.
+            </div>
+            {/* user ? (
             <CommentInput
               anime_mal_id={id}
               user_email={user.email}
@@ -209,12 +216,8 @@ const page = async ({params:{id}}) => {
               anime_image={anime.data.images.webp.image_url}
             />
             ) : (
-            <div className="text-color-primary">
-              <a href="/api/auth/signin" className="text-color-link hover:underline">Sign In</a> to comment.
-            </div>
-            )}
-            
-            
+              Sign In div
+            ) */}
           </div>
         </div>
       </div>

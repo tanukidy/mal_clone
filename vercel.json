@@ -1,10 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    { 
-      "src": "package.json",
-      "use": "@vercel/static-build" 
-    }
+  "rewrites": [
+    {"source": "^/$", "destination": "/"},
+    {"source": "^/Anime/([^/]+)$", "destination": "/Anime/[id]"},
+    {"source": "^/Search/([^/]+)$", "destination": "/Search/[keyword]"},
+    {"source": "^/User/dashboard", "destination": "/User/dashboard"}
   ]
 }
 

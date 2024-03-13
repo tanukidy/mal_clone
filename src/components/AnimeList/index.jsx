@@ -81,7 +81,7 @@ const AnimeList = ({ api, isGrid }) => {
             </Link>
           ))
         )}
-        {!isSmallScreen && (
+        {!isSmallScreen && !isGrid &&(
           <>
         <div className='absolute top-1/2 left-[-24px] -translate-y-20 border rounded-r-full bg-color-dark py-5 px-1 opacity-0 group-hover:translate-x-2 group-hover:opacity-90 transition-all ease-in-out duration-500 z-5'>
           <CaretLeft onClick={handlePrev} className='' size={40} />
